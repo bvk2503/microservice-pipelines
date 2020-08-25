@@ -23,8 +23,10 @@ def createTestJob(jobName, repoUrl) {
     multibranchPipelineJob(jobName) {
         branchSources {
             git {
-                remote(repoUrl)
-                includes('*')
+                remote{
+                    url (repoUrl)
+                    includes('*')
+                }
             }
         }
         triggers {
@@ -39,8 +41,8 @@ def buildPipelineJobs() {
     def deployName = jobName + "_deploy"
     def testName = jobName + "_test"
 
-    createDeploymentJob(deployName, repoUrl)
-    //createTestJob(testName, repoUrl)
+    //createDeploymentJob(deployName, repoUrl)
+    createTestJob(testName, repoUrl)
 }
 
 buildPipelineJobs()
