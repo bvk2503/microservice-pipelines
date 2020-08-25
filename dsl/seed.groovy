@@ -23,8 +23,8 @@ def createTestJob(jobName, repoUrl) {
     multibranchPipelineJob(jobName) {
         branchSources {
             git {
-                remote{
-                    url (repoUrl)
+                remote {
+                    url(repoUrl)
                     includes('*')
                 }
             }
