@@ -25,8 +25,8 @@ def createTestJob(jobName, repoUrl) {
             git {
                 remote {
                     url(repoUrl)
-                    includes('*')
                 }
+                includes('*')                
             }
         }
         triggers {
